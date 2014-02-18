@@ -38,6 +38,14 @@ window.onload = function() {
 		
 		game.rootScene.addChild(paddle);
         
+        var ball = new Sprite(10,10);
+        ball.image = game.assets['http://img153.imageshack.us/img153/442/previewpg6.jpg'];
+        ball.x = 145;
+        ball.y = 275;
+        ball.frame = 40;
+        
+        game.rootScene.addChild(ball);
+        
         var brick1 = new Sprite(30,15);
         brick1.image = game.assets['http://img153.imageshack.us/img153/442/previewpg6.jpg'];
         brick1.x = 20;
