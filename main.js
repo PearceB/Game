@@ -40,7 +40,7 @@ window.onload = function() {
         
         var ball = new Sprite(10,10);
         ball.image = game.assets['http://img153.imageshack.us/img153/442/previewpg6.jpg'];
-        ball.x = 145;
+        ball.x = 11;
         ball.y = 275;
         ball.frame = 40;
         
@@ -295,6 +295,11 @@ window.onload = function() {
 		bg.addEventListener(Event.TOUCH_MOVE, function(e) {
 			paddle.toX = e.x - 16;
 		});
+        
+        bg.addEventListener(Event.ENTER_FRAME, function() {
+            ball.x += 2.5;
+            ball.y -= 2.5;
+        });
 	};
 	game.start();
 };
