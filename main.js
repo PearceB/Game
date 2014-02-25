@@ -8,7 +8,7 @@ enchant();
 // Load the game state before start
 window.onload = function() {
     var game = new Core(320, 320);
-	game.fps = 32;
+	game.fps = 64;
 	game.preload('http://img153.imageshack.us/img153/442/previewpg6.jpg',
 				 'http://enchantjs.com/assets/images/map0.gif');
 	
@@ -297,8 +297,92 @@ window.onload = function() {
 		});
         
         bg.addEventListener(Event.ENTER_FRAME, function() {
-            ball.x += 2.5;
-            ball.y -= 2.5;
+            ball.x += 2;
+            ball.y -= 2;
+            if (ball.intersect(brick28)) {
+                game.rootScene.removeChild(brick28);
+            }
+            if (ball.intersect(brick27)) {
+                game.rootScene.removeChild(brick27);
+            }
+            if (ball.intersect(brick26)) {
+                game.rootScene.removeChild(brick26);
+            }
+            if (ball.intersect(brick25)) {
+                game.rootScene.removeChild(brick25);
+            }
+            if (ball.intersect(brick24)) {
+                game.rootScene.removeChild(brick24);
+            }
+            if (ball.intersect(brick23)) {
+                game.rootScene.removeChild(brick23);
+            }
+            if (ball.intersect(brick22)) {
+                game.rootScene.removeChild(brick22);
+            }
+            if (ball.intersect(brick21)) {
+                game.rootScene.removeChild(brick21);
+            }
+            if (ball.intersect(brick20)) {
+                game.rootScene.removeChild(brick20);
+            }
+            if (ball.intersect(brick19)) {
+                game.rootScene.removeChild(brick19);
+            }
+            if (ball.intersect(brick18)) {
+                game.rootScene.removeChild(brick18);
+            }
+            if (ball.intersect(brick17)) {
+                game.rootScene.removeChild(brick17);
+            }
+            if (ball.intersect(brick16)) {
+                game.rootScene.removeChild(brick16);
+            }
+            if (ball.intersect(brick15)) {
+                game.rootScene.removeChild(brick15);
+            }
+            if (ball.intersect(brick14)) {
+                game.rootScene.removeChild(brick14);
+            }
+            if (ball.intersect(brick13)) {
+                game.rootScene.removeChild(brick13);
+            }
+            if (ball.intersect(brick12)) {
+                game.rootScene.removeChild(brick12);
+            }
+            if (ball.intersect(brick11)) {
+                game.rootScene.removeChild(brick11);
+            }
+            if (ball.intersect(brick10)) {
+                game.rootScene.removeChild(brick10);
+            }
+            if (ball.intersect(brick9)) {
+                game.rootScene.removeChild(brick9);
+            }
+            if (ball.intersect(brick8)) {
+                game.rootScene.removeChild(brick8);
+            }
+            if (ball.intersect(brick7)) {
+                game.rootScene.removeChild(brick7);
+            }
+            if (ball.intersect(brick6)) {
+                game.rootScene.removeChild(brick6);
+            }
+            if (ball.intersect(brick5)) {
+                game.rootScene.removeChild(brick5);
+            }
+            if (ball.intersect(brick4)) {
+                game.rootScene.removeChild(brick4);
+            }
+            if (ball.intersect(brick3)) {
+                game.rootScene.removeChild(brick3);
+            }
+            if (ball.intersect(brick2)) {
+                game.rootScene.removeChild(brick2);
+            }
+            if (ball.intersect(brick1)) {
+                game.rootScene.removeChild(brick1);
+            }
         });
 	};
 	game.start();
