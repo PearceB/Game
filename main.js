@@ -40,8 +40,11 @@ window.onload = function() {
         
         var ball = new Sprite(10,10);
         ball.image = game.assets['http://img153.imageshack.us/img153/442/previewpg6.jpg'];
-        ball.x = 11;
-        ball.y = 275;
+        ball.x = 150;
+        ball.y = 200;
+        ball.dx = 1.5;
+        ball.dy = 2.5;
+        ball.speed = 1;
         ball.frame = 40;
         
         game.rootScene.addChild(ball);
@@ -297,91 +300,136 @@ window.onload = function() {
 		});
         
         bg.addEventListener(Event.ENTER_FRAME, function() {
-            ball.x += 2;
-            ball.y -= 2;
-            if (ball.intersect(brick28)) {
-                game.rootScene.removeChild(brick28);
-            }
-            if (ball.intersect(brick27)) {
-                game.rootScene.removeChild(brick27);
-            }
-            if (ball.intersect(brick26)) {
-                game.rootScene.removeChild(brick26);
-            }
-            if (ball.intersect(brick25)) {
-                game.rootScene.removeChild(brick25);
-            }
-            if (ball.intersect(brick24)) {
-                game.rootScene.removeChild(brick24);
-            }
-            if (ball.intersect(brick23)) {
-                game.rootScene.removeChild(brick23);
-            }
-            if (ball.intersect(brick22)) {
-                game.rootScene.removeChild(brick22);
-            }
-            if (ball.intersect(brick21)) {
-                game.rootScene.removeChild(brick21);
-            }
-            if (ball.intersect(brick20)) {
-                game.rootScene.removeChild(brick20);
-            }
-            if (ball.intersect(brick19)) {
-                game.rootScene.removeChild(brick19);
-            }
-            if (ball.intersect(brick18)) {
-                game.rootScene.removeChild(brick18);
-            }
-            if (ball.intersect(brick17)) {
-                game.rootScene.removeChild(brick17);
-            }
-            if (ball.intersect(brick16)) {
-                game.rootScene.removeChild(brick16);
-            }
-            if (ball.intersect(brick15)) {
-                game.rootScene.removeChild(brick15);
-            }
-            if (ball.intersect(brick14)) {
-                game.rootScene.removeChild(brick14);
-            }
-            if (ball.intersect(brick13)) {
-                game.rootScene.removeChild(brick13);
-            }
-            if (ball.intersect(brick12)) {
-                game.rootScene.removeChild(brick12);
-            }
-            if (ball.intersect(brick11)) {
-                game.rootScene.removeChild(brick11);
-            }
-            if (ball.intersect(brick10)) {
-                game.rootScene.removeChild(brick10);
-            }
-            if (ball.intersect(brick9)) {
-                game.rootScene.removeChild(brick9);
-            }
-            if (ball.intersect(brick8)) {
-                game.rootScene.removeChild(brick8);
-            }
-            if (ball.intersect(brick7)) {
-                game.rootScene.removeChild(brick7);
-            }
-            if (ball.intersect(brick6)) {
-                game.rootScene.removeChild(brick6);
-            }
-            if (ball.intersect(brick5)) {
-                game.rootScene.removeChild(brick5);
-            }
-            if (ball.intersect(brick4)) {
-                game.rootScene.removeChild(brick4);
-            }
-            if (ball.intersect(brick3)) {
-                game.rootScene.removeChild(brick3);
-            }
-            if (ball.intersect(brick2)) {
-                game.rootScene.removeChild(brick2);
-            }
-            if (ball.intersect(brick1)) {
-                game.rootScene.removeChild(brick1);
+            ballMove();
+            function ballMove() {
+                ball.x = ball.x + ball.dx * ball.speed;
+                ball.y = ball.y + ball.dy * ball.speed;
+                if ((ball.x < 0) || (ball.x > (game.width - ball.width))) {
+                    ball.dx = -ball.dx;
+                }
+                if ((ball.y < 0)) {
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick28)) {
+                    brick28.x = 5000;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick27)) {
+                    brick27.x = 4750;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick26)) {
+                    brick26.x = 4500;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick25)) {
+                    brick25.x = 4250;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick24)) {
+                    brick24.x = 4000;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick23)) {
+                    brick23.x = 3750;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick22)) {
+                    brick22.x = 3500;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick21)) {
+                    brick21.x = 3250;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick20)) {
+                    brick20.x = 3000;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick19)) {
+                    brick19.x = 2750;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick18)) {
+                    brick18.x = 2500;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick17)) {
+                    brick17.x = 2250;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick16)) {
+                    brick16.x = 2000;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick15)) {
+                    brick15.x = 1750;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick14)) {
+                    brick14.x = 1500;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick13)) {
+                    brick13.x = 1250;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick12)) {
+                    brick12.x = 1000;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick11)) {
+                    brick11.x = -1000;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick10)) {
+                    brick10.x = -1250;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick9)) {
+                    brick9.x = -1500;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick8)) {
+                    brick8.x = -1750;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick7)) {
+                    brick7.x = -2000;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick6)) {
+                    brick6.x = -2250;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick5)) {
+                    brick5.x = -2500;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick4)) {
+                    brick4.x = -2750;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick3)) {
+                    brick3.x = -3000;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick2)) {
+                    brick2.x = -3250;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(brick1)) {
+                    brick1.x = -3500;
+                    ball.dy = -ball.dy;
+                }
+                if (ball.intersect(paddle)) {
+                    ball.dy = -ball.dy;
+                }
+                if (ball.y > (game.height - ball.height)) {
+                    ball.dy = 0;
+                    ball.dx = 0;
+                    
+                }
             }
         });
 	};
