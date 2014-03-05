@@ -8,7 +8,7 @@ enchant();
 // Load the game state before start
 window.onload = function() {
     var game = new Core(320, 320);
-	game.fps = 64;
+    game.fps = 64;
 	game.preload('http://img153.imageshack.us/img153/442/previewpg6.jpg',
 				 'http://enchantjs.com/assets/images/map0.gif');
 	
@@ -27,7 +27,16 @@ window.onload = function() {
 		
 		bg.image = image;
 		game.rootScene.addChild(bg);
+        
+        // Add the Score
+        game.score = 0;
+        scoreLabel = new Label("Score: ");
+        scoreLabel.x = 5;
+        scoreLabel.color = "white";
+        
+        game.rootScene.addChild(scoreLabel);
 		
+        //Add the paddle
 		var paddle = new Sprite(65,10);
     	paddle.image = game.assets['http://img153.imageshack.us/img153/442/previewpg6.jpg'];
 		paddle.x = 120;
@@ -38,17 +47,19 @@ window.onload = function() {
 		
 		game.rootScene.addChild(paddle);
         
+        // Add the ball
         var ball = new Sprite(10,10);
         ball.image = game.assets['http://img153.imageshack.us/img153/442/previewpg6.jpg'];
-        ball.x = 150;
+        ball.x = 110;
         ball.y = 200;
-        ball.dx = 1.5;
+        ball.dx = 1;
         ball.dy = 2.5;
-        ball.speed = 1;
+        ball.speed = 1.1;
         ball.frame = 40;
         
         game.rootScene.addChild(ball);
         
+        // Add each brick
         var brick1 = new Sprite(30,15);
         brick1.image = game.assets['http://img153.imageshack.us/img153/442/previewpg6.jpg'];
         brick1.x = 20;
@@ -273,6 +284,12 @@ window.onload = function() {
         
         game.rootScene.addChild(brick28);
         
+        // Setup the score
+        scoreLabel.addEventListener(Event.ENTER_FRAME, function(){
+            this.text = "Score: " + game.score;
+        });
+        
+        // Controlling paddle movement
 		paddle.addEventListener(Event.ENTER_FRAME, function() {
             if (paddle.x > paddle.toX) {
                 paddle.dir = LEFT;
@@ -290,15 +307,18 @@ window.onload = function() {
                 }
             }
         });
-	
+        
+        // Start the paddle movement
 		bg.addEventListener(Event.TOUCH_START, function(e) {
-			paddle.toX = e.x - 16;
-		});
-			
-		bg.addEventListener(Event.TOUCH_MOVE, function(e) {
-			paddle.toX = e.x - 16;
+			paddle.toX = e.x - 20;
 		});
         
+        // Move the paddle
+		bg.addEventListener(Event.TOUCH_MOVE, function(e) {
+			paddle.toX = e.x - 20;
+		});
+        
+        // Moving the ball and detecting collision
         bg.addEventListener(Event.ENTER_FRAME, function() {
             ballMove();
             function ballMove() {
@@ -313,125 +333,160 @@ window.onload = function() {
                 if (ball.intersect(brick28)) {
                     brick28.x = 5000;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick27)) {
                     brick27.x = 4750;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick26)) {
                     brick26.x = 4500;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick25)) {
                     brick25.x = 4250;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick24)) {
                     brick24.x = 4000;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick23)) {
                     brick23.x = 3750;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick22)) {
                     brick22.x = 3500;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick21)) {
                     brick21.x = 3250;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick20)) {
                     brick20.x = 3000;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick19)) {
                     brick19.x = 2750;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick18)) {
                     brick18.x = 2500;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick17)) {
                     brick17.x = 2250;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick16)) {
                     brick16.x = 2000;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick15)) {
                     brick15.x = 1750;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick14)) {
                     brick14.x = 1500;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick13)) {
                     brick13.x = 1250;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick12)) {
                     brick12.x = 1000;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick11)) {
                     brick11.x = -1000;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick10)) {
                     brick10.x = -1250;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick9)) {
                     brick9.x = -1500;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick8)) {
                     brick8.x = -1750;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick7)) {
                     brick7.x = -2000;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick6)) {
                     brick6.x = -2250;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick5)) {
                     brick5.x = -2500;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick4)) {
                     brick4.x = -2750;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick3)) {
                     brick3.x = -3000;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick2)) {
                     brick2.x = -3250;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(brick1)) {
                     brick1.x = -3500;
                     ball.dy = -ball.dy;
+                    game.score = game.score + 10;
                 }
                 if (ball.intersect(paddle)) {
-                    ball.dy = -ball.dy;
+                    ball.dy = -ball.dy - Math.floor(Math.random() * 1.21);
+                    if (ball.dx > 0) {
+                        ball.dx = ball.dx + Math.floor(Math.random() * 1.21);
+                    } else if (ball.dx < 0) {
+                        ball.dx = ball.dx - Math.floor(Math.random() * 1.21);
+                    }
                 }
                 if (ball.y > (game.height - ball.height)) {
                     ball.dy = 0;
                     ball.dx = 0;
-                    
+                    game.end();                    
                 }
             }
         });
 	};
+    
+    // Start the game
 	game.start();
 };
